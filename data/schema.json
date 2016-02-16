@@ -842,7 +842,19 @@
             },
             {
               "name": "reddit",
-              "description": "Github Reference ID",
+              "description": "Reddit Reference ID",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "forcedotcom",
+              "description": "ForceDotCom reference ID",
               "args": [],
               "type": {
                 "kind": "SCALAR",

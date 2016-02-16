@@ -50,5 +50,11 @@
       background-color: lighten($facebookBlue, 10%);
     }
   }
+  &-forcedotcom {
+    background-color: $forcedotcomBlue;
+    &:hover, &:focus, &:active {
+      background-color: lighten($forcedotcomBlue, 10%);
+    }
+  }
 }
 

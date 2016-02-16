@@ -341,8 +341,13 @@ var userType = new GraphQLObjectType({
     },
     reddit: {
       type: GraphQLString,
-      description: 'Github Reference ID',
+      description: 'Reddit Reference ID',
       resolve: (user => user.reddit)
+    },
+    forcedotcom: {
+      type: GraphQLString,
+      description: 'ForceDotCom Reference ID',
+      resolve: (user => user.forcedotcom)
     },
     pictureUrl: {
       type: GraphQLString,

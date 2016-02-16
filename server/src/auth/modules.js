@@ -20,5 +20,6 @@ export const OpenIDStrategy = require('passport-openid').Strategy;
 export const OAuthStrategy = require('passport-oauth').OAuthStrategy;
 export const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 export const RedditStrategy = require('passport-reddit').Strategy;
+export const ForceDotComStrategy = require('passport-forcedotcom').Strategy;
 
 

@@ -140,6 +140,7 @@ export class LoginForm extends React.Component {
           <LoginWith google/>
           <LoginWith twitter/>
           <LoginWith facebook/>
+          <LoginWith forcedotcom/>
           <Center><h4>Sign in with local account</h4></Center>
           <hr/>
           <Input disabled={this.state.loginPending}

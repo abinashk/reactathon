@@ -10,6 +10,7 @@ import {
   GoogleStrategy,
   OpenIDStrategy,
   RedditStrategy,
+  ForceDotComStrategy,
   config,
   nodemailer
 } from './modules';
@@ -300,6 +301,72 @@ passport.deserializeUser(function (user, done) {
     }
   }));
 }
+
+
+/* ForceDotCom */ {
+  passport.use(new ForceDotComStrategy({
+    clientID: config.FORCE_DOT_COM_ID,
+    clientSecret: config.FORCE_DOT_COM_SECRET,
+    callbackURL: config.FORCE_DOT_COM_CALLBACK_URL,
+    passReqToCallback: true
+  }, function (req, accessToken, refreshToken, profile, done) {
+
+    if (req.user) {
+      User.findOne(
+        {where: {forcedotcom: profile.id}}).then(alreadyExists => {
+        if (alreadyExists) {
+          console.log('already exists');
+          return done();
+        }
+        User.findOne({ where: {id: req.user.id} }).then(user => {
+          console.log('update user');
+          user.set('forcedotcom', profile.id);
+          user.set('displayName', user.displayName || profile.displayName);
+          // user.set('pictureUrl', user.pictureUrl || profile._json.image.url);
+          user.save().then((savedUser) => {
+            console.log('user saved, creating access token');
+            forcedotcom_access_token = JSON.parse(accessToken);
+            access_token = forcedotcom_access_token['access_token'];
+            savedUser.createToken({kind: 'forcedotcom', access_token}).then(() => {
+              console.log('token created');
+              done();
+            });
+          });
+        });
+      });
+    } else {
+      User.findOne(
+        {where: {forcedotcom: profile.id}}).then(existingUser => {
+        if (existingUser) {
+          console.log('user already exists');
+          return done(null, existingUser);
+        }
+        User.findOne({
+          where: { email: profile.emails[0].value }}).then(emailExists => {
+          if (emailExists) {
+            console.log('user email already exists');
+            // There is already a user that has this email in the db.
+            return done();
+          }
+          User.create({
+            forcedotcom: profile.id,
+            email: profile.emails[0].value,
+            displayName: profile.displayName
+            // pictureUrl: profile._json.image.url
+          }).then(newUser => {
+            console.log('new user created');
+            forcedotcom_access_token = JSON.parse(accessToken);
+            access_token = forcedotcom_access_token['access_token'];
+            newUser.createToken({kind: 'forcedotcom', access_token}).then(() => {
+              done(newUser);
+            });
+          });
+        });
+      });
+    }
+  }));
+}
+
 
 
 /* Steam */ {

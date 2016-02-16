@@ -71,6 +71,18 @@ const auth = express.Router();
 }
 
 
+/* ForceDotCom */ {
+  auth.get('/forcedotcom',
+    passport.authenticate('forcedotcom')
+  );
+  auth.get('/forcedotcom/callback',
+    passport.authenticate('forcedotcom', {
+      failureRedirect: '/dashboard' }), (req, res) => {
+    res.redirect('/dashboard');
+  });
+}
+
+
 /* LinkedIn */ {
   auth.get('/linkedin',
     passport.authenticate('linkedin', {
@@ -82,6 +94,7 @@ const auth = express.Router();
     res.redirect('/dashboard');
   });
 }
+
 
 /* Unlink */ {
   auth.get('/unlink/:provider', (req, res, next) => {

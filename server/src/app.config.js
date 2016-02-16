@@ -77,7 +77,12 @@ module.exports = {
       STEAM_KEY: process.env.STEAM_KEY,
       STEAM_CALLBACK_URL: process.env.STEAM_CALLBACK_URL,
       MAILGUN_USER: process.env.MAILGUN_USER,
-      MAILGUN_PASSWORD: process.env.MAILGUN_PASSWORD
+      MAILGUN_PASSWORD: process.env.MAILGUN_PASSWORD,
+      FORCE_DOT_COM_ID: process.env.FORCE_DOT_COM_ID,
+      FORCE_DOT_COM_SECRET: process.env.FORCE_DOT_COM_SECRET,
+      FORCE_DOT_COM_CALLBACK_URL: process.env.FORCE_DOT_COM_CALLBACK_URL,
+      FORCE_DOT_COM_AUTHORIZE_URL: process.env.FORCE_DOT_COM_AUTHORIZE_URL,
+      FORCE_DOT_COM_TOKEN_URL: process.env.FORCE_DOT_COM_TOKEN_URL
     },
     test: {
       FACEBOOK_ID: process.env.FACEBOOK_ID,
@@ -98,7 +103,12 @@ module.exports = {
       STEAM_KEY: process.env.STEAM_KEY,
       STEAM_CALLBACK_URL: process.env.STEAM_CALLBACK_URL,
       MAILGUN_USER: process.env.MAILGUN_USER,
-      MAILGUN_PASSWORD: process.env.MAILGUN_PASSWORD
+      MAILGUN_PASSWORD: process.env.MAILGUN_PASSWORD,
+      FORCE_DOT_COM_ID: process.env.FORCE_DOT_COM_ID,
+      FORCE_DOT_COM_SECRET: process.env.FORCE_DOT_COM_SECRET,
+      FORCE_DOT_COM_CALLBACK_URL: process.env.FORCE_DOT_COM_CALLBACK_URL,
+      FORCE_DOT_COM_AUTHORIZE_URL: process.env.FORCE_DOT_COM_AUTHORIZE_URL,
+      FORCE_DOT_COM_TOKEN_URL: process.env.FORCE_DOT_COM_TOKEN_URL
     },
     production: {
       FACEBOOK_ID: process.env.FACEBOOK_ID,
@@ -119,7 +129,12 @@ module.exports = {
       STEAM_KEY: process.env.STEAM_KEY,
       STEAM_CALLBACK_URL: process.env.STEAM_CALLBACK_URL,
       MAILGUN_USER: process.env.MAILGUN_USER,
-      MAILGUN_PASSWORD: process.env.MAILGUN_PASSWORD
+      MAILGUN_PASSWORD: process.env.MAILGUN_PASSWORD,
+      FORCE_DOT_COM_ID: process.env.FORCE_DOT_COM_ID,
+      FORCE_DOT_COM_SECRET: process.env.FORCE_DOT_COM_SECRET,
+      FORCE_DOT_COM_CALLBACK_URL: process.env.FORCE_DOT_COM_CALLBACK_URL,
+      FORCE_DOT_COM_AUTHORIZE_URL: process.env.FORCE_DOT_COM_AUTHORIZE_URL,
+      FORCE_DOT_COM_TOKEN_URL: process.env.FORCE_DOT_COM_TOKEN_URL
     }
   },
   logger: {

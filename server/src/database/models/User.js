@@ -25,7 +25,8 @@ module.exports = function (sequelize, DataTypes) {
     facebook: DataTypes.STRING,
     steam: DataTypes.STRING,
     linkedin: DataTypes.STRING,
-    google: DataTypes.STRING
+    google: DataTypes.STRING,
+    forcedotcom: DataTypes.STRING
   }, {
     classMethods: {
       associate: (models) => {

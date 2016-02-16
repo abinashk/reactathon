@@ -135,6 +135,7 @@ type User implements Node {
   twitter: String
   facebook: String
   reddit: String
+  forcedotcom: String
   pictureUrl: String
   website: String
   location: String

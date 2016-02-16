@@ -55,6 +55,8 @@ class DashboardComponent extends React.Component {
 
   onLinkTwitter = () => (window.location.href = '/auth/twitter');
 
+  onLinkForceDotCom = () => (window.location.href = '/auth/forcedotcom');
+
   onUnlinkFacebook = () => (window.location.href = '/auth/unlink/facebook');
 
   onUnlinkGithub = () => (window.location.href = '/auth/unlink/github');
@@ -64,6 +66,8 @@ class DashboardComponent extends React.Component {
   onUnlinkGoogle = () => (window.location.href = '/auth/unlink/google');
 
   onUnlinkTwitter = () => (window.location.href = '/auth/unlink/twitter');
+
+  onUnlinkForceDotCom = () => (window.location.href = '/auth/unlink/forcedotcom');
 
   render() {
 
@@ -76,7 +80,8 @@ class DashboardComponent extends React.Component {
       google,
       twitter,
       facebook,
-      reddit
+      reddit,
+      forcedotcom
       } = this.props.viewer.user;
 
     return (
@@ -134,6 +139,13 @@ class DashboardComponent extends React.Component {
                   this.onLinkTwitter}>
                   {twitter ? 'Unlink' : 'link'}
                 </ButtonInput>
+                <label>ForceDotCom</label>
+                <ButtonInput
+                  onClick={forcedotcom ?
+                  this.onUnlinkForceDotCom :
+                  this.onLinkForceDotCom}>
+                  {forcedotcom ? 'Unlink' : 'link'}
+                </ButtonInput>
               </fieldset>
               <Button bsStyle="success">Edit Profile</Button>
             </form>
@@ -165,6 +177,7 @@ export const Dashboard = Relay.createContainer(DashboardComponent, {
           twitter
           facebook
           reddit
+          forcedotcom
         }
       }
     `

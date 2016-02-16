@@ -14,7 +14,8 @@ const redirect = {
   reddit: () => performRedirect('/auth/reddit'),
   twitter: () => performRedirect('/auth/twitter'),
   facebook: () => performRedirect('/auth/facebook'),
-  google: () => performRedirect('/auth/google')
+  google: () => performRedirect('/auth/google'),
+  forcedotcom: () => performRedirect('/auth/forcedotcom')
 };
 
 

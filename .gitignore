@@ -458,3 +458,6 @@ sessions
 
 # logs
 *.log
+
+# env variables
+.env.example
